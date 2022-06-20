@@ -1,17 +1,50 @@
-# rick_and_morty_app
+# Flutter - Rick and Morty App
 
-A new Flutter project.
+Rick and Morty Database made with Flutter.
 
-## Getting Started
+[API]([https://themealdb.com/api.php](https://rickandmortyapi.com/))
 
-This project is a starting point for a Flutter application.
+## About App
 
-A few resources to get you started if this is your first Flutter project:
+Things To Do
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```bash
+  ❌ Splash Screen
+  ❌ Intro Screen
+  ✅ Home Screen
+  ✅ Details Screen
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# rick-and-morty-app
+Dependencies
+
+```bash
+  http: https://pub.dev/packages/http
+```
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/EnginBolat/rick-and-morty-app.git
+```
+
+Go to the project directory
+
+```bash
+  cd rick-and-morty-app
+```
+
+Install dependencies
+
+```bash
+  flutter pub get
+```
+
+Run App
+
+```bash
+  flutter run
+```
+
+
