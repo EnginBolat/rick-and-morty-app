@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_demo/pages/fetch_data_test.dart';
-import 'package:rick_and_morty_demo/pages/home_page.dart';
+import 'package:flutter/services.dart';
+import 'package:rick_and_morty_app/pages/home_page.dart';
+
+import 'constants/const_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +14,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
-      title: 'RickAndMorty',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      debugShowCheckedModeBanner: false,
+      title: ConstTexts.appName,
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark().copyWith(
+        appBarTheme: const AppBarTheme(centerTitle: true),
       ),
-      home:  const MyWidget(),
+      home: const HomePage(),
     );
   }
 }
-
