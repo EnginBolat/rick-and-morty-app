@@ -2,7 +2,7 @@
 
 Rick and Morty Database made with Flutter.
 
-[API]([https://themealdb.com/api.php](https://rickandmortyapi.com/))
+[API](https://rickandmortyapi.com/)
 
 ## About App
 
