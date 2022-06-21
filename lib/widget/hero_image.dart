@@ -26,6 +26,7 @@ class HeroImage extends StatelessWidget {
           ),
           child: SizedBox(
             width: double.infinity,
+            height: 390,
             child: Image.network(
               "$image",
               fit: BoxFit.fill,

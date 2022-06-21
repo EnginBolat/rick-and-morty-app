@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:rick_and_morty_app/constants/const_text.dart';
+import 'package:rick_and_morty_app/widget/custom_scaffold_color.dart';
 
+import '../constants/const_colors.dart';
 import '../models/character.dart';
 import 'dart:convert';
 
@@ -55,6 +57,9 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     getCharacters();
     _scrollController.addListener(() {
+      const CircularProgressIndicator();
+      Future.delayed(const Duration(seconds: 3));
+
       if (_scrollController.position.pixels >=
           _scrollController.position.maxScrollExtent) {
         if (kDebugMode) {
@@ -73,23 +78,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(ConstTexts.homePageAppBarTitle),
-      ),
-      body: GridView.builder(
-        physics: const BouncingScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.9,
+    return CustomScaffoldColor(
+      widgetScaffold: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(ConstTexts.homePageAppBarTitle),
         ),
-        controller: _scrollController,
-        itemCount: characters.length,
-        itemBuilder: ((context, index) {
-          var character = characters[index];
-          return CharacterShowCaseWidget(character: character);
-        }),
+        body: GridView.builder(
+          physics: const BouncingScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.9,
+          ),
+          controller: _scrollController,
+          itemCount: characters.length,
+          itemBuilder: ((context, index) {
+            var character = characters[index];
+            return CharacterShowCaseWidget(character: character);
+          }),
+        ),
       ),
     );
   }

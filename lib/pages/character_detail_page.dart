@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/widget/character_details_card.dart';
+import 'package:rick_and_morty_app/widget/custom_scaffold_color.dart';
 
 import '../widget/hero_image.dart';
 
@@ -28,31 +29,32 @@ class CharacterDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(name ?? "Null"),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            HeroImage(
-              image: image,
-              bottomLeftRadius: 20.0,
-              bottomRightRadius: 20.0,
-              padding: 10.0,
-            ),
-            CharacterDetailsCard(
-              status: status,
-              species: species,
-              gender: gender,
-              originName: originName,
-              locationName: locationName,
-              padding: 8,
-            ),
-          ],
+    return CustomScaffoldColor(
+      widgetScaffold: Scaffold(
+        appBar: AppBar(
+          title: Text(name ?? "Null"),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              HeroImage(
+                image: image,
+                bottomLeftRadius: 20.0,
+                bottomRightRadius: 20.0,
+                padding: 10.0,
+              ),
+              CharacterDetailsCard(
+                status: status,
+                species: species,
+                gender: gender,
+                originName: originName,
+                locationName: locationName,
+                padding: 8,
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-

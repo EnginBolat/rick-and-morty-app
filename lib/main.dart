@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rick_and_morty_app/constants/const_colors.dart';
 import 'package:rick_and_morty_app/pages/home_page.dart';
 
 import 'constants/const_text.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initialazion(null);
   runApp(const MyApp());
+}
+
+Future initialazion(BuildContext? context) async {
+  //You will be add your resources.For load in splash screen
+  await Future.delayed(const Duration(seconds: 3));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,9 +30,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: ConstTexts.appName,
       themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark().copyWith(
-        appBarTheme: const AppBarTheme(centerTitle: true),
-      ),
+      theme: ThemeData(
+          scaffoldBackgroundColor: Colors.transparent,
+          appBarTheme: AppBarTheme(
+            centerTitle: true,
+            color: ConstColors.darkGreen,
+          ),
+          textTheme: const TextTheme(
+            headline6: TextStyle(),
+          )),
       home: const HomePage(),
     );
   }

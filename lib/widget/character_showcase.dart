@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty_app/constants/const_colors.dart';
 
 import '../models/character.dart';
 import '../pages/character_detail_page.dart';
@@ -34,31 +35,42 @@ class CharacterShowCaseWidget extends StatelessWidget {
         width: 200,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
-          child: Card(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: SizedBox(
-                      height: 170,
-                      width: 170,
-                      child: Image.network('${character.image}',
-                          fit: BoxFit.cover),
-                    ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(90),
+                  child: SizedBox(
+                    height: 150,
+                    width: 150,
+                    child:
+                        Image.network('${character.image}', fit: BoxFit.cover),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    character.name!.length > 20
-                        ? Text(character.name!.substring(0, 20)+"...")
-                        : Text(character.name!)
-                  ],
-                )
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 40,
+                width: 160,
+                child: Card(
+                  color: ConstColors.lightYellow,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      character.name!.length > 15
+                          ? Text(
+                              character.name!.substring(0, 15) + "...",
+                              style: Theme.of(context).textTheme.subtitle1!,
+                            )
+                          : Text(
+                              character.name!,
+                              style: Theme.of(context).textTheme.subtitle1!,
+                            )
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
